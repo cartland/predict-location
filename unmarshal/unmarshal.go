@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package main
+package unmarshal
 
 import (
 	"encoding/json"
@@ -53,20 +53,4 @@ func ParseFile(filename string) UnstructuredJSON {
 	var jsonvar UnstructuredJSON
 	json.Unmarshal(file, &jsonvar)
 	return jsonvar
-}
-
-func parseFile(filename string) UnstructuredJSON {
-	file, e := ioutil.ReadFile(filename)
-	if e != nil {
-		fmt.Printf("File error: %v\n", e)
-		os.Exit(1)
-	}
-	var jsonvar UnstructuredJSON
-	json.Unmarshal(file, &jsonvar)
-	return jsonvar
-}
-
-func main() {
-	s := parseFile("./short.json")
-	fmt.Printf("Results: %v\n", s)
 }
