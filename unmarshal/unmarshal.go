@@ -22,6 +22,34 @@ import (
 	"os"
 )
 
+// {
+//   "locations" : [ {
+//     "timestampMs" : "1481242225470",
+//     "latitudeE7" : 407404503,
+//     "longitudeE7" : -740021937,
+//     "accuracy" : 21
+//   }, {
+//     "timestampMs" : "1481242165362",
+//     "latitudeE7" : 407404503,
+//     "longitudeE7" : -740021937,
+//     "accuracy" : 21
+//   } ]
+// }
+
+type JsonObject struct {
+  Locations LocationsType
+}
+
+type LocationsType struct {
+  Locations []LocationType
+}
+
+type LocationType struct {
+  TimestampMs string
+  LatitudeE7 int64
+  LongitudeE7 int64
+}
+
 type UnstructuredJSON struct {
 	Map map[string]interface{} `json:???` // Rest of the fields should go here.
 }
@@ -54,3 +82,4 @@ func ParseFile(filename string) UnstructuredJSON {
 	json.Unmarshal(file, &jsonvar)
 	return jsonvar
 }
+
