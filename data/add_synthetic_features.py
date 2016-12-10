@@ -30,13 +30,13 @@ def main():
 
     row = [
             timestampMs,
-            latitudeE7,
-            longitudeE7,
             year,
             month,
             day,
             hour,
-            minute
+            minute,
+            latitudeE7,
+            longitudeE7,
     ]
     writeout.writerow(row)
 
